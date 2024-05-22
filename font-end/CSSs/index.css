@@ -1,0 +1,286 @@
+
+
+@import url(CSSs/prins.css);
+body {
+  overflow-x: hidden; 
+  background: linear-gradient(to bottom, var(--color-1), var(--color-4));
+  font-family: sans-serif;
+  background-repeat: no-repeat;
+  width: 100%;
+  
+}
+
+a {
+  border-radius: 5px;
+}
+
+
+.lema {
+  position: absolute;
+  color: rgb(238, 238, 238);
+  font-size: xxx-large;
+  -webkit-text-stroke: 4px rgba(0, 0, 0, 0.295);
+
+  top: 5%;
+  right: 20vw;
+  left: 20vw;
+  width: 59vw;
+  text-align: justify;
+  word-wrap: break-word;
+  text-align: center;
+  z-index: 500;
+}
+
+
+.news {
+  background-color: var(--color-6);
+  height: 100%;
+  max-height: fit-content;
+  margin: 2em auto;
+  color: var(--color-2);
+}
+
+
+.news img {
+  width: 90%;
+  height: 200px;
+  filter: blur(0px);
+}
+
+.news-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+.news-container > div {
+  flex: 0 0 auto;
+  padding: 10px;
+}
+
+.newsInfo {
+  padding: 10px;
+  background-color: rgba(var(--color-15), 0.5);
+  width: 23vw;
+  color: var(--color-2);
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.newsText {
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+
+.fecha {
+  font-size: x-small;
+  text-align: right;
+}
+
+
+.pie {
+  background-color: var(--color-4);
+  color: var(--color-2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  height: 20vh;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 5px 0 5px -3px rgba(255, 255, 255, 0.5), -5px 0 5px -3px rgba(255, 255, 255, 0.5);
+}
+
+
+.g {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 0 5px -3px rgba(255, 255, 255, 0.5), -5px 0 5px -3px rgba(255, 255, 255, 0.5);
+  width: 33%;
+  padding: 30px;
+}
+
+
+.gg {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  padding: 30px;
+}
+
+
+.pie p {
+  font-size: small;
+  text-align: justify;
+}
+
+
+.popup-planos {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+h1 {
+  font-size: small;
+}
+
+p {
+  font-size: x-small;
+}
+
+.camino {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  top: 45%;
+  left: 50%;
+  width: 60vw;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-4);
+  padding: 20px;
+  z-index: 1000;
+  color: var(--color-3);
+}
+ .camino p{
+  font-size: xx-large;
+ }
+.camino-contenido {
+  background-color: var(--color-4);
+  flex-direction: row;
+}
+
+.cerrar-camino {
+  -webkit-touch-callout: none;
+  color: var(--color-2);
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  font-size: xxx-large;
+  transform: rotate(45deg);
+}
+
+.cerrar-camino:hover {
+  color: var(--color-3);
+}
+
+
+.InfoRECU_S{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  .InfoRECU {
+  display: flex;
+  width: 90%;
+  text-align: center;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.imgtex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.parrafo{
+  max-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+
+.textoexp {
+  font-size: 35px;
+  color: var(--color-2);
+}
+
+.imagenesdesc {
+  max-width: 50vw;
+  max-height: calc(50vw * 870 / 1920);
+}
+
+
+
+#centro {
+  grid-column: 2/4;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column-reverse;
+  background-color: #f0f0f000;
+
+}
+
+
+
+.carousel {
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+  z-index: -200; 
+}
+
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out; 
+}
+
+.carousel img.active {
+  opacity: 1;
+}
+
+.carousel img:not(.active) {
+  opacity: 0;
+}
+.botom{
+  margin-bottom: 20vh;
+}

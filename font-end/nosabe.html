@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="CSSs/cavecera.css">
+        <link rel="stylesheet" href="CSSs/prins.css">
+        <link rel="stylesheet" href="iniciosecion.css">
+        <link rel="stylesheet" href="CSSs/armadonosabe.css">
+        <script async src="scripts/CargarNoticias.js"></script>
+
+</head>
+<body>
+  <header>
+    <nav>
+        <a href="index.html">
+            <img src="recursos/logo_Pn.png" alt="logo_texto" style="width: 80px;">
+            <img src="recursos/logo_texto.png" alt="logo_texto" style="width: 200px;">
+        </a>
+        <div class="menu-barra">
+            <a href="index.html" class="menu-item">Inicio</a>
+            <a href="#" class="menu-item">Nosotros</a>
+            <a href="camino.html" class="menu-item">Armado</a>
+            <button class="menu-item" onClick="mostrarPopup('popup-registro')">Registro</button>
+            <button class="menu-item" onClick="mostrarPopup('popup-login')">Iniciar Sesión</button>
+            
+    </nav>
+</header>
+
+<div id="popup-login" class="popup">
+    <h2>Iniciar Sesión</h2>
+    <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-login')">&times;</div>
+    <form action="#" method="post" class="formulario-login">
+        <input type="text" name="usuario" placeholder="Usuario">
+        <input type="password" name="contraseña" placeholder="Contraseña">
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</div>
+
+<div id="popup-registro" class="popup">
+    <h2>Registro</h2>
+    <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-registro' )">&times;</div>
+    <form action="#" method="post" class="formulario-registro">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellido" placeholder="Apellido">
+        <input type="text" name="correo" placeholder="Correo Electrónico">
+        <input type="password" name="contraseña" placeholder="Contraseña">
+        <input type="submit" value="Registrarse">
+    </form>
+</div>
+<script>
+        function mostrarPopup(idPopup) {
+        var popup = document.getElementById(idPopup);
+        popup.style.display = "block";
+    }
+    function ocultarPopup(idPopup) {
+        var popup = document.getElementById(idPopup);
+        popup.style.display = "none";
+    }
+</script>
+
+
+
+
+        <div class="contenido_1">
+            <div class="imagen_con_boton">
+
+                <button id="abrir-seleccionador"> selecciona un procesador</button>
+
+                <div id="seleeccionador" class="seleeccionador">
+                  <div class="seleeccionador-content">
+                    <span class="cerrar-seleccionador">&times;</span>
+                    <h2>selecciona el procesador que deseas</h2>
+                    <form action="#">
+                        <select id="opciones" name="opciones" multiple>
+        <option value="opcion1">procesador 1</option>
+        <option value="opcion2">procesador 2</option>
+        <option value="opcion3">procesador 3</option>
+
+    </select><br><br>
+    <div id="contenido" style="display: none;">
+      <img src="" id="imagen" alt="awd">
+      <p id="texto"></p>
+    </div>
+    <input type="submit" value="Enviar">
+                    </form>
+                  </div>
+                </div>
+    </div>
+
+        <div class="pie">
+          <p>ag  dw</p><hr> <p>dwa</p> <hr> <p>aw</p>
+        </div>
+        <script>
+            document.getElementById('abrir-seleccionador').addEventListener('click', function() {
+            document.getElementById('seleeccionador').style.display = 'block';
+          });
+
+          document.getElementsByClassName('cerrar-seleccionador')[0].addEventListener('click', function() {
+            document.getElementById('seleeccionador').style.display = 'none';
+          });
+
+
+          document.getElementById('opciones').addEventListener('change', function() {
+  var opcionSeleccionada = this.value;
+  var contenido = document.getElementById('contenido');
+  var imagen = document.getElementById('imagen');
+  var texto = document.getElementById('texto');
+
+  if (opcionSeleccionada === 'opcion1') {
+    imagen.src = 'recursos/Imagen de WhatsApp 2024-03-16 a las 23.20.12_3a5bc53b.png';
+    texto.textContent = 'Texto para la opción 1.';
+  } else if (opcionSeleccionada === 'opcion2') {
+    imagen.src = 'imagen2.jpg';
+    texto.textContent = 'Texto para la opción 2.';
+  } else if (opcionSeleccionada === 'opcion3') {
+    imagen.src = 'imagen3.jpg';
+    texto.textContent = 'Texto para la opción 3.';
+  }
+
+  contenido.style.display = 'block';
+});
+          </script>
+</body>
+</html>
+
+
+Unidad de Almacenamiento
+Placa Base
+Fuente de Poder
+Procesador
+Tarjeta RAM
+Tarjeta de Red
+Tarjeta de Sonido
+Tarjeta Gráfica
+Unidad de Enfriamiento
+Gabinete

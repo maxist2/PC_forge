@@ -1,0 +1,190 @@
+/* Variables globales */
+:root {
+  --color-1: rgb(34, 40, 49);   /* color oscuro */
+  --color-2: rgb(238, 238, 238); /* color claro */
+  --color-3: rgb(118, 171, 174); /* color intermedio */
+  --color-4: rgb(49, 54, 63);    /* otro color oscuro */
+  --color-5: rgb(0, 0, 0);       /* negro */
+  --color-6: rgba(128, 128, 128, 0.489); /* color semi-transparente *//* color semi-transparente */
+}
+/* Estilos del cuerpo */
+body {
+  background: linear-gradient(to bottom, var(--color-4), var(--color-4), var(--color-1));
+  z-index: -999;
+  overflow: auto;
+  margin: 0;
+  font-family: sans-serif;
+  background-repeat: no-repeat;
+}
+
+/* Fondo */
+.fondo {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 110vw;
+  height: 110vh;
+  object-fit: cover;
+}
+
+/* Fondo - para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .fondo {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 110vw;
+    height: 110vh;
+    object-fit: cover;
+    transform: rotate(90deg);
+  }
+}
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none;
+  color: var(--color-2);
+}
+
+/* Barras de desplazamiento personalizadas */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-3);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--color-5);
+}
+
+/* Elemento de la página activa */
+#pagactu {
+  background-color: var(--color-6);
+  cursor: default;
+}
+
+/* Botones generales */
+.botom,
+.botom1,
+.botom2 {
+  margin: 10px;
+  border: none;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--color-1);
+  color: var(--color-2);
+  border-radius: 5px;
+}
+
+/* Efectos de hover en botones */
+.botom:hover,
+.botom1:hover,
+.botom2:hover {
+  background-color: var(--color-3);
+  pointer-events: painted;
+  color: var(--color-1);
+  padding: 60px;
+  margin-top: 15px;
+  font-size: xx-large;
+}
+
+/* Pie de página */
+.pie {
+  background-color: var(--color-5);
+  color: var(--color-2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  height: 20vh;
+}
+
+/* Botón circular */
+#circular-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-3);
+  color: var(--color-2);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.5s, font-size 0.3s;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
+}
+
+#circular-button:hover {
+  background-color: var(--color-4);
+}
+
+#circular-button.rotate {
+  transform: rotate(45deg);
+  font-size: 60px;
+}
+
+/* Popup */
+#popup {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  background-color: var(--color-1);
+  border: 1px solid var(--color-3);
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 999;
+  overflow: auto;
+}
+
+#popup textarea {
+  width: 200px;
+  height: 100px;
+  resize: none;
+  margin-bottom: 10px;
+  background-color: var(--color-4);
+  color: var(--color-2);
+}
+
+#popup button {
+  font-size: large;
+  background-color: var(--color-1);
+  border-style: solid;
+  border-color: var(--color-3);
+  color: var(--color-2);
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+textarea::placeholder {
+  color: var(--color-2);
+}
+
+#popup button:hover {
+  background-color: var(--color-3);
+}
+
+object {
+  width: 100%;
+  height: 100vh;
+}

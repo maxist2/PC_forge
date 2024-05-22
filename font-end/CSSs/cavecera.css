@@ -1,0 +1,151 @@
+
+@import url(CSSs/prins.css);
+
+
+nav {
+  background-color: var(--color-1);
+  color: var(--color-2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: self-end;
+  height: 7vh;
+  overflow: hidden;
+  z-index: 99;
+}
+nav img {
+  position: relative;
+  background-color: var(--color-1);
+  top: 20px;
+}
+button {
+  border-radius: 5px;
+}
+button:hover {
+  pointer-events: painted;
+}
+.menu-item{
+  cursor: pointer;
+}
+
+
+.menu-barra button {
+  border-radius: 5px;
+  background-color: var(--color-1);
+  width: auto;
+  margin-bottom: 8px;
+  color: var(--color-2);
+  text-decoration: none;
+  padding: 10px;
+  border: none;
+}
+.menu-barra button:hover {
+  background-color: var(--color-3);
+}
+
+.boton-popup {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.boton-popup:hover {
+  background-color: #0056b3;
+}
+
+.popup {
+  color: var(--color-2);
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: var(--color-1);
+  padding: 20px;
+  width: 300px;
+}
+.popup h2 {
+  margin-top: 0;
+}
+.popup input[type="text"],input[type="email"],
+.popup input[type="password"],
+.popup input[type="submit"] {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+}
+.popup input[type="submit"] {
+  background-color: var(--color-4);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.popup input[type="submit"]:hover {
+  background-color: var(--color-3);
+}
+.popup input[type="text"],input[type="email"],
+.popup input[type="password"] {
+  background: var(--color-5);
+  color: var(--color-2);
+}
+.popup .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+.imagen {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+#pagactu {
+  background-color: var(--color-4);
+  cursor: default;
+}
+#pagactu a{
+  background-color: var(--color-4);
+  cursor:default;
+}
+.password-container{
+  display: flex;
+  flex-direction: column;
+}
+.toggle-password{
+  position: relative;
+  align-self: flex-end;
+  background-color: rgba(0,0,0,0);
+  border:none; 
+  color: var(--color-2);
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 10px;
+  top: -35px;
+  right: 3px;
+}
+
+.toggle-password:hover {
+  background-color: var(--color-4);
+}
+
+#change-colors {
+  position: relative;
+  top: -10px;
+}
+
+#change-colors img{
+  height: 30px;
+  width: 30px;
+}
+#change-colors:hover{
+  cursor: pointer;
+  background-color: var(--color-1);
+}

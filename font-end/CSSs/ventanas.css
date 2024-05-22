@@ -1,0 +1,284 @@
+@import url(CSSs/prins.css);
+
+:root {
+    --color-1: rgb(34, 40, 49);   /* color oscuro */
+    --color-2: rgb(238, 238, 238); /* color claro */
+    --color-3: rgb(118, 171, 174); /* color intermedio */
+    --color-4: rgb(49, 54, 63);    /* otro color oscuro */
+    --color-5: rgb(0, 0, 0);       /* negro */
+    --color-6: rgba(128, 128, 128, 0.489); /* color semi-transparente */
+    --color-7: rgba(0, 140, 255, 0.24);    /* color semi-transparente */
+    --color-8: blue;                      /* azul */
+    --color-9: red;                       /* rojo */
+    --color-10: rgba(255, 0, 0, 0.3);     /* rojo semi-transparente */
+    --color-11: #0056b3;                  /* azul oscuro */
+    --color-12: #ccc;                     /* gris claro */
+    --color-13: var(--color-1);           /* otro color oscuro */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, var(--color-1), var(--color-4));
+    z-index: -999;
+    color: var(--color-2);
+    overflow: hidden;
+    height: 100vh;
+}
+
+div {
+    border-radius: 5px;
+}
+
+.cont-ancla {
+    border-radius: 0px;
+    height: 100%;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-top: 3vh;
+    box-shadow: 5px 0 5px -3px var(--color-6), -5px 0 5px -3px var(--color-6);
+}
+
+.cont-ancla > h1 {
+    position: relative;
+    font-size: small;
+}
+
+.base {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+    height: 90vh;
+}
+
+.opciones {
+    width: 20vw;
+    height: 100%;
+}
+
+.ventanas {
+    width: 195px;
+    height: 145px;
+    background-color: var(--color-7);
+    border: 3px dashed var(--color-8);
+    box-shadow: 2px 2px 4px var(--color-6);
+}
+
+#newven {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    opacity: 0.25;
+    z-index: -1;
+    pointer-events: none;
+    position: relative;
+}
+
+.ventana {
+    width: 185px;
+    height: 135px;
+    background-color: var(--color-4);
+    border: 3px solid var(--color-2);
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 3px;
+    opacity: 1;
+    box-shadow: 2px 2px 6px var(--color-6);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: var(--color-2);
+    text-shadow: 1;
+}
+
+.anclaje {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 195px;
+    height: 145px;
+    background-color: var(--color-2);
+    border: 3px dashed var(--color-4);
+    z-index: 1;
+    margin: 5px;
+    box-shadow: 2px 2px 4px var(--color-6);
+}
+
+.anclaje img {
+    height: 100%;
+    filter: brightness(0.5);
+}
+
+.ancla-elimina {
+    width: 195px;
+    height: 145px;
+    background-color: var(--color-10);
+    border: 3px dashed var(--color-9);
+    box-shadow: 2px 2px 4px var(--color-6);
+    display: flex;
+    align-items: center;
+}
+
+#trash {
+    height: 90%;
+    margin: auto;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#cantidadVentanas {
+    width: 50px;
+    font-size: x-large;
+}
+
+.gif-hover {
+    height: 12vh;
+    filter: grayscale(100%);
+    padding-top: 1vh;
+}
+
+.gif-hover:hover {
+    content: url('recursos/HAMMERG 2.gif');
+    filter: grayscale(100%);
+}
+
+.back-icon:hover {
+    background-color: var(--color-11);
+}
+
+.fase1, .fase2, .fase3, .fase4, .fase5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fase5 {
+    background-color: var(--color-13);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: var(--color-2);
+    color: var(--color-1);
+}
+
+button:hover {
+    background-color: var(--color-3);
+    color: var(--color-1);
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;    
+    border: 0px solid var(--color-12);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 20vw;
+    box-shadow: 2px 2px 4px var(--color-6);
+    background-color: var(--color-6);
+    color: var(--color-2);
+}
+
+select:hover {
+    background-color: var(--color-3);
+}
+
+option {
+    background-color: var(--color-1);
+    border: var(--color-1);
+}
+
+#categoriaSeleccionada,
+#componenteSeleccionado {
+    margin-right: 5px;
+}
+
+.info {
+    max-width: 20%;
+    font-size: x-small;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.cajaComp {
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+.otog {
+    width: 100%;
+    box-shadow: 2px 2px 4px var(--color-6);
+}
+
+.fondarm {
+    position: relative;
+    top: -105.5%;
+    z-index: -1;
+    height: 115%;
+    width: 110%;
+    left: -5%;
+}
+
+h4 {
+    font-size: large;
+}
+
+.total {
+    font-size: xx-large;
+    padding: 5%;
+    box-shadow: 0px -5px 5px -5px var(--color-6);
+    grid-column: 1/3;
+    text-align: center;
+}
+
+.contenidoHover {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--color-2);
+    color: var(--color-1);
+    padding: 10px;
+    border: 1px solid var(--color-3);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px var(--color-6);
+    font-family: Arial, sans-serif;
+    top: calc(-10% + 10px);
+    left: 190%;
+    transform: translateX(-50%);
+    height: 300px;
+    width: 150%;
+    z-index: 9;
+}
+
+.ventanas .ventana:hover .contenidoHover {
+    display: block;
+}
+
+.ventana::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    border: 10px solid transparent;
+    border-right-color: var(--color-3);
+    z-index: 99;
+    opacity: 0;
+}
+
+.ventana:hover::before {
+    opacity: 1;
+}

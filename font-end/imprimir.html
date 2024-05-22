@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Configuración de PC</title>
+    <link rel="stylesheet" href="CSSs/cavecera.css">
+    <link rel="stylesheet" href="CSSs/imp.css">
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+</head>
+<body>
+ 
+    <header>
+        <nav>
+            <a onclick="campag('index')">
+                <img src="recursos/logo_Pn.png" alt="logo_texto" style="width: 80px;">
+                <img src="recursos/logo_texto.png" alt="logo_texto" style="width: 200px;">
+            </a>
+            <div class="menu-barra">
+                <button class="index"  onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('index')" id="pagactu">Inicio</button>
+                <button class="almacen" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('almacen')">Armeria</button>
+                <button class="ventanas" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('ventanas')">Forja</button>
+                
+                <button class="menu-item" onClick="mostrarPopup('popup-registro'),ocultarPopup('popup-login')">Registro</button>
+                <button class="menu-item" onClick="mostrarPopup('popup-login'),ocultarPopup('popup-registro')">Iniciar Sesión</button>
+            </div>
+            </nav>
+        </header>
+        <div id="popup-login" class="popup">
+            <h2>Iniciar Sesión</h2>
+            <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-login')">&times;</div>
+            <form id="login-form" class="formulario-login">
+                <input type="text" name="usuario" placeholder="Usuario" required>
+                <div class="password-container">
+                    <input type="password" name="contraseña" id="login-password" placeholder="Contraseña" title="La contraseña debe cumplir los siguientes requisitos: al menos una letra mayúscula (A-Z), al menos una letra minúscula (a-z), al menos un dígito (0-9), y tener una longitud mínima de 8 caracteres." pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('login-password')">Mostrar</button>
+                </div>
+                <input type="submit" value="Iniciar Sesión">
+            </form>
+        </div>
+        
+        <div id="popup-registro" class="popup">
+            <h2>Registro</h2>
+            <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-registro')">&times;</div>
+            <form id="register-form" class="formulario-registro">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="apellido" placeholder="Apellido" required>
+                <input type="email" name="correo" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}\.[a-z]{2,}$" title="Ingrese un correo electrónico válido" required>
+                <div class="password-container">
+                    <input type="password" name="contraseña" id="register-password" placeholder="Contraseña" title="La contraseña debe cumplir los siguientes requisitos: al menos una letra mayúscula (A-Z), al menos una letra minúscula (a-z), al menos un dígito (0-9), y tener una longitud mínima de 8 caracteres." pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('register-password')">Mostrar</button>
+                </div>
+                <input type="submit" value="Registrarse">
+            </form>
+            <script src="scripts/register-login.js"></script>    
+        </div>
+        </div>
+  
+    <div class="container">
+        <div class="info-box">
+
+            <table>
+                <tr>
+                    <td><p class="title" id="discoDuro">Disco duro:</p>
+                        <span class="component" id="discoDuroComponente">[Aquí va el componente]</span>
+                    </td>
+                    <td><p class="title" id="armazon">Armazón:</p>
+                        <span class="component" id="armazonComponente">[Aquí va el componente]</span>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td><p class="title" id="placaBase">Placa base:</p>
+                        <span class="component" id="placaBaseComponente">[Aquí va el componente]</span>
+                    </td>
+                    <td><p class="title" id="unidadEnfriamiento">Unidad de enfriamiento:</p>
+                        <span class="component" id="unidadEnfriamientoComponente">[Aquí va el componente]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><p class="title" id="ram">RAM:</p>
+                        <span class="component" id="ramComponente">[Aquí va el componente]</span>
+                    </td>
+                    <td><p class="title" id="fuentePoder">Fuente de poder:</p>
+                        <span class="component" id="fuentePoderComponente">[Aquí va el componente]</span>
+                    </td>
+             
+                </tr>
+                <tr>
+                    <td><p class="title" id="procesador">Procesador:</p>
+                        <span class="component" id="procesadorComponente">[Aquí va el componente]</span>
+                    </td>
+                    <td><p class="title" id="tarjetaGrafica">Tarjeta gráfica:</p>
+                        <span class="component" id="tarjetaGraficaComponente">[Aquí va el componente]</span>
+                    </td>
+                </tr>
+            </table>
+<div class="texto">
+    <h1>Preparación</h1>
+    <li>Organiza todas las piezas y herramientas en un área limpia y espaciosa.</li>
+    <li>Descarga los controladores necesarios para tu placa base y tarjeta gráfica desde el sitio web del fabricante y guárdalos en una unidad USB si es necesario.</li>
+  
+</div>
+<div class="texto">
+    <h1>Montaje de la placa base</h1>
+    <li>Coloca la placa base sobre la caja del embalaje para evitar dañar los componentes en la superficie.</li>
+    <li>Instala el procesador en la placa base siguiendo las instrucciones específicas del zócalo de la CPU y asegúrate de que esté en la orientación correcta.</li>
+    <li>Abre la palanca del zócalo, coloca el procesador con cuidado y cierra la palanca para fijarlo en su lugar.</li>
+</div >
+<div class="texto">
+    <h1>Instalación del disipador de calor del procesador</h1>
+    <li>Aplica una pequeña cantidad de pasta térmica en el centro del procesador.</li>
+    <li>Coloca el disipador de calor sobre el procesador y alinea los tornillos o las pestañas de montaje</li>
+    <li>Asegura el disipador de calor girando los tornillos o enganchando las pestañas según las instrucciones del fabricante.</li>
+</div>
+<div class="texto">
+    <h1>Instalación de la memoria RAM</h1>
+    <li>Abre las pestañas de retención en los slots de memoria RAM de la placa base.</li>
+    <li>Inserta los módulos de memoria RAM en los slots correspondientes asegurándote de que estén alineados correctamente con la muesca en el conector.</li>
+    <li>Presiona firmemente hacia abajo en ambos extremos de la memoria RAM hasta que las pestañas de retención se cierren automáticamente.</li>
+</div>
+<div class="texto">
+    <h1>Instalación de la tarjeta gráfica</h1>
+    <li>Retira las placas de expansión en la parte trasera de la carcasa donde se encuentra la ranura PCI-Express.</li>
+    <li>Inserta la tarjeta gráfica en la ranura PCI-Express principal asegurándote de que esté completamente asentada en la ranura.</li>
+    <li>Fija la tarjeta gráfica con el tornillo de sujeción en la parte trasera de la carcasa.</li>
+</div>
+<div class="texto">
+    <h1> Instalación de las unidades de almacenamiento</h1>
+    <li>Monta las unidades de almacenamiento (disco duro o SSD) en las bahías correspondientes de la carcasa utilizando los tornillos suministrados.</li>
+    <li>Conecta los cables SATA de datos y alimentación a las unidades de almacenamiento y a la placa base.</li>
+
+</div>
+<div class="texto">
+    <h1> Instalación de la fuente de alimentación</h1>
+    <li>Coloca la fuente de alimentación en la posición designada en la carcasa y asegúrala con los tornillos suministrados.</li>
+    <li>Conecta los cables de alimentación de la fuente a la placa base, la tarjeta gráfica, las unidades de almacenamiento y otros dispositivos periféricos según sea necesario.</li>
+ 
+</div>
+<div class="texto">
+    <h1>Conexión de cables y ensamblaje final</h1>
+    <li>Conecta los cables del panel frontal de la carcasa (encendido, reinicio, USB, audio, etc.) a los headers correspondientes de la placa base según el manual.</li>
+    <li>Asegúrate de que todos los cables estén correctamente enrutados y que no haya obstrucciones en el flujo de aire dentro de la carcasa.</li>
+    <li>Cierra la carcasa y asegúrala con los tornillos suministrados.</li>
+</div>
+<div class="texto">
+    <h1>Pruebas y encendido</h1>
+    <li>Antes de encender la PC, verifica nuevamente que todos los componentes estén correctamente instalados y conectados.</li>
+    <li>Conecta el cable de alimentación y enciende la PC.</li>
+    <li>Si todo está en orden, la BIOS debería cargar y podrás proceder con la instalación del sistema operativo desde un medio de arranque (DVD, USB, etc.).</li>
+</div>
+<div class="texto">
+    <h1>Herramientas</h1>
+    <p>tenga en cuenta que puede necesitar varias de estas herramientas durante el armado de su equipo </p>
+    <li>Destornilladores: Necesitarás destornilladores de diferentes tamaños, como Phillips y planos, para apretar tornillos en la carcasa, fijar la placa base, asegurar el disipador de calor, etc.</li>
+    <li>Pinzas: Las pinzas pueden ser útiles para manipular cables y conectar componentes en áreas de difícil acceso.</li>
+    <li>Juego de llaves hexagonales (Allen): Algunos componentes, como los disipadores de CPU, pueden requerir llaves hexagonales para fijarse correctamente.</li>
+    <li>Pasta térmica: Se necesita para aplicar una fina capa entre el procesador y el disipador de calor para mejorar la transferencia de calor.</li>
+    <li>Cable ties (bridas/cintas de sujeción): Ayudan a organizar y asegurar los cables dentro de la carcasa para mejorar el flujo de aire y mantener el interior ordenado.</li>
+    <li>Linterna o luz LED: Una fuente de luz adicional puede ser útil para iluminar áreas oscuras dentro de la carcasa mientras trabajas.</li>
+    <li>Pulsera antiestática: Para evitar dañar los componentes electrónicos por descargas estáticas, especialmente en condiciones de baja humedad, es recomendable usar una pulsera antiestática conectada a una superficie metálica a tierra.</li>
+    <li>Manual del usuario: Cada componente generalmente viene con un manual que proporciona instrucciones específicas de instalación y precauciones a seguir. Es importante leer estos manuales antes de comenzar.</li>
+    <li>Superficie de trabajo limpia: Trabajar en una superficie limpia y plana puede ayudar a prevenir daños a los componentes y facilitar el ensamblaje.</li>
+    <li>Guantes antiestáticos: Opcionalmente, puedes usar guantes antiestáticos para reducir aún más el riesgo de descargas estáticas.</li>
+</div>
+
+        <div class="button-group">
+            <button class="btn"><a href="builder.html">Regresar</a></button>
+            <button class="btn" onclick="descargarPDF()">Descargar PDF</button>
+            <script>
+            function descargarPDF() {
+            window.print();
+            }
+            </script>
+            <button class="btn">Guardar</button>
+        </div>
+    </div>
+    <br><br><br>
+  
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="CSSs/prins.css">
+<link rel="stylesheet" href="CSSs/cavecera.css">
+<link rel="stylesheet" href="CSSs/formulario.css">
+
+
+</head>
+
+
+<body>        
+
+
+    <div id="circular-button" role="button" tabindex="0" onclick="togglePopup()">+</div>
+    <div id="popup">
+        <textarea placeholder="Escribe aquí..." id="message"></textarea>
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("popup");
+            var button = document.getElementById("circular-button");
+        if (popup.style.display === "none") {
+            popup.style.display = "block";
+            button.classList.add("rotate");
+            
+            
+        } else {
+            popup.style.display = "none";
+            button.classList.remove("rotate");
+            
+        }
+    }
+    
+    function sendMessage() {
+        var message = document.getElementById("message").value;
+        console.log("Mensaje enviado:", message);
+        document.getElementById("message").value = "";
+        document.getElementById("circular-button").classList.remove("rotate");
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+<header>
+    <nav>
+        <a onclick="campag('index')">
+            <img src="recursos/logo_Pn.png" alt="logo_texto" style="width: 80px;">
+            <img src="recursos/logo_texto.png" alt="logo_texto" style="width: 200px;">
+        </a>
+        <div class="menu-barra">
+            <button class="index"  onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('index')" >Inicio</button>
+            <button class="almacen" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('almacen')">Armeria</button>
+            <button class="ventanas" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('ventanas')">Forja</button>
+            
+            <button class="menu-item" onClick="mostrarPopup('popup-registro'),ocultarPopup('popup-login')">Registro</button>
+            <button class="menu-item" onClick="mostrarPopup('popup-login'),ocultarPopup('popup-registro')">Iniciar Sesión</button>
+        </div>
+        </nav>
+    </header>
+    <div id="popup-login" class="popup">
+        <h2>Iniciar Sesión</h2>
+        <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-login')">&times;</div>
+        <form id="login-form" class="formulario-login">
+            <input type="text" name="usuario" placeholder="Usuario" required>
+            <div class="password-container">
+                <input type="password" name="contraseña" id="login-password" placeholder="Contraseña" title="La contraseña debe cumplir los siguientes requisitos: al menos una letra mayúscula (A-Z), al menos una letra minúscula (a-z), al menos un dígito (0-9), y tener una longitud mínima de 8 caracteres." pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                <button type="button" class="toggle-password" onclick="togglePassword('login-password')">Mostrar</button>
+            </div>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
+    
+    <div id="popup-registro" class="popup">
+        <h2>Registro</h2>
+        <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-registro')">&times;</div>
+        <form id="register-form" class="formulario-registro">
+            <input type="text" name="nombre" placeholder="Nombre" required>
+            <input type="text" name="apellido" placeholder="Apellido" required>
+            <input type="email" name="correo" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}\.[a-z]{2,}$" title="Ingrese un correo electrónico válido" required>
+            <div class="password-container">
+                <input type="password" name="contraseña" id="register-password" placeholder="Contraseña" title="La contraseña debe cumplir los siguientes requisitos: al menos una letra mayúscula (A-Z), al menos una letra minúscula (a-z), al menos un dígito (0-9), y tener una longitud mínima de 8 caracteres." pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+                <button type="button" class="toggle-password" onclick="togglePassword('register-password')">Mostrar</button>
+            </div>
+            <input type="submit" value="Registrarse">
+        </form>
+        <script src="scripts/register-login.js"></script>    
+    </div>
+    </div>
+
+    <h1>Planos</h1>
+    <div id="planos-container"></div>
+
+    <script>
+        // Hacer una solicitud GET al backend para obtener los planos
+        fetch('http://localhost:8099/api/planos') // Modifica la URL del backend según tu puerto
+            .then(response => response.json())
+            .then(planos => {
+                const planosContainer = document.getElementById('planos-container');
+
+                // Limpiar el contenedor de planos
+                planosContainer.innerHTML = '';
+
+                // Iterar sobre los planos y agregarlos al contenedor
+                planos.forEach(plano => {
+                    const planoElement = document.createElement('div');
+                    planoElement.textContent = `Nombre: ${plano.nombreA}, Fecha: ${plano.fecha}`;
+
+                    planosContainer.appendChild(planoElement);
+                });
+            })
+            .catch(error => console.error('Error al obtener los planos:', error));
+    </script>
+
+
+
+
+
+
+
+
+
+
+<h1>Formulario para conocer las necesidades de tu PC</h1>
+
+<form action="#" method="POST">
+
+<div class="allform">
+    <fieldset class="grid-container">
+
+        <div class="categoria">
+            <label for="checkbox_gaming">Gaming</label>
+            <input type="range" id="slider_gaming" name="slider_gaming" min="0" max="100" value="0" onchange="updateTotal()">
+            <output for="slider_gaming" id="output_gaming">0</output>
+            <div class="tooltip">El equipo será utilizado para jugar videojuegos o ejecutar aplicaciones de entretenimiento de alto rendimiento.</div>
+        </div>
+        
+        <div class="categoria">
+            <label for="checkbox_diseño_grafico">Diseño gráfico</label>
+            <input type="range" id="slider_diseño_grafico" name="slider_diseño_grafico" min="0" max="100" value="0" onchange="updateTotal()">
+            <output for="slider_diseño_grafico" id="output_diseño_grafico">0</output>
+            <div class="tooltip">Utilizado para crear y editar gráficos, imágenes y diseños artísticos.</div>
+        </div>
+        
+        <div class="categoria">
+            <label for="checkbox_edicion_video">Edición de vídeo</label>
+            <input type="range" id="slider_edicion_video" name="slider_edicion_video" min="0" max="100" value="0" onchange="updateTotal()">
+            <output for="slider_edicion_video" id="output_edicion_video">0</output>
+            <div class="tooltip">El equipo será utilizado para editar videos, agregar efectos visuales y crear contenido multimedia.</div>
+        </div>
+        
+        <div class="categoria">
+            <label for="checkbox_programacion">Programación</label>
+            <input type="range" id="slider_programacion" name="slider_programacion" min="0" max="100" value="0" onchange="updateTotal()">
+            <output for="slider_programacion" id="output_programacion">0</output>
+            <div class="tooltip">El equipo será utilizado para desarrollar software, escribir código y realizar pruebas de aplicaciones.</div>
+        </div>
+        
+        <div class="categoria">
+            <label for="checkbox_ofimatica">Ofimática</label>
+            <input type="range" id="slider_ofimatica" name="slider_ofimatica" min="0" max="100" value="0" onchange="updateTotal()">
+            <output for="slider_ofimatica" id="output_ofimatica">0</output>
+            <div class="tooltip">El equipo será utilizado para tareas de oficina, como crear documentos, hojas de cálculo y presentaciones.</div>
+        </div>
+        
+        <div class="categoria">
+            <label for="checkbox_otro">Otro</label>
+            <input type="range" id="slider_otro" name="slider_otro" min="0" max="100" value="0" onchange="updateTotal()">
+            <output for="slider_otro" id="output_otro">0</output>
+            <div class="tooltip">El equipo será utilizado para un propósito no especificado en las categorías anteriores.</div>
+        </div>
+        
+        
+        <script>
+            function updateTotal() {
+                var sliders = document.querySelectorAll('input[type="range"]');
+                var total = 0;
+                sliders.forEach(function(slider) {
+                    total += parseInt(slider.value);
+                });
+                if (total > 104) {
+                    sliders.forEach(function(slider) {
+                        if (parseInt(slider.value) > 0) {
+                            slider.value = parseInt(slider.value) - 1;
+                            slider.nextElementSibling.textContent = slider.value;
+                            updateTotal();
+                        }
+                    });
+                }
+            }
+        
+           
+            document.querySelectorAll('input[type="range"]').forEach(function(input) {
+                var output = document.getElementById(input.getAttribute('id').replace('slider_', 'output_'));
+                input.addEventListener('input', function() {
+                    output.textContent = this.value;
+                    updateTotal();
+                });
+            });
+        </script>
+    </fieldset>
+    <div class="formcot">
+        <label for="preferencia_marca">¿Tienes alguna preferencia de marca para los componentes componentes?</label>
+        <select id="preferencia_marca" name="preferencia_marca">
+           
+        </select>
+    </div>
+    
+    <script>
+
+        const marcas = ["Marca 1", "Marca 2", "Marca 3", "Marca 4"];
+    
+     
+        function cargarOpciones() {
+            const select = document.getElementById("preferencia_marca");
+            marcas.forEach(marca => {
+                const option = document.createElement("option");
+                option.text = marca;
+                option.value = marca;
+                select.appendChild(option);
+            });
+        }
+    
+       
+        window.onload = cargarOpciones;
+    </script>
+    
+    <div class="formcot">
+        <label for="espacio_almacenamiento">¿Cuánto espacio de almacenamiento crees que necesitarás para tus archivos y programas?</label>
+        <div class="respuesta">
+        <input type="range" id="espacio_almacenamiento" name="espacio_almacenamiento" min="0" max="3" step="1" list="espacio_almacenamiento_list">
+        <output for="espacio_almacenamiento" id="output_almacenamiento">1 TB    </output>
+        <datalist id="espacio_almacenamiento_list">
+            <option value="250">250 GB</option>
+            <option value="500">500 GB</option>
+            <option value="1000">1 TB</option>
+            <option value="2000">2 TB</option>
+          
+        </datalist>
+    </div>
+    </div>
+    <script>
+        document.getElementById('espacio_almacenamiento').addEventListener('input', function() {
+            var output = document.getElementById('output_almacenamiento');
+            var selectedValue = this.value;
+            switch(selectedValue) {
+                case '0':
+                    output.textContent = '250 GB';
+                    break;
+                case '1':
+                    output.textContent = '500 GB';
+                    break;
+                case '2':
+                    output.textContent = '1 TB';
+                    break;
+                case '3':
+                    output.textContent = '2 TB';
+                    break;
+                default:
+                    output.textContent = '0 GB';
+            }
+        });
+    </script>
+    
+    <div class="formcot">
+        <label for="portabilidad">¿Prefieres que tu computadora de escritorio sea fácil de transportar o más robusta?</label>
+        <select id="portabilidad" name="portabilidad">
+            <option value="facil_transportar">Fácil de transportar</option>
+            <option value="mas_robusta">Más robusta</option>
+        </select>
+    </div>
+    
+    <div class="formcot">
+        <label for="jugar_videojuegos">¿Planeas jugar videojuegos en tu computadora de escritorio?</label>
+        <label class="switch">
+            <input type="checkbox" id="jugar_videojuegos" class="switch-container" name="jugar_videojuegos" onchange="mostrarPreguntasVideojuegos()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    
+    
+    <div id="preguntas_videojuegos" style="display: none;">
+        <div class="formcot">
+            <label for="juegos_online">¿Juegas juegos online?</label>
+            <label class="switch">
+                <input type="checkbox" id="juegos_online" name="juegos_online">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    
+    
+        <div class="formcot">
+            <label for="tipo_juegos">¿Qué tipo de juegos?</label>
+            <select id="tipo_juegos" name="tipo_juegos">
+                <option value="accion">Acción</option>
+                <option value="aventura">Aventura</option>
+                <option value="estrategia">Estrategia</option>
+                <option value="simulacion">Simulación</option>
+                <option value="deportes">Deportes</option>
+                <option value="otros">Otros</option>
+            </select>
+        </div>
+    
+        <div class="formcot">
+            <label for="calidad_grafica">¿Con qué nivel de calidad gráfica?</label>
+            <select id="calidad_grafica" name="calidad_grafica">
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+                <option value="ultra">Ultra</option>
+            </select>
+        </div>
+    
+        <div class="formcot">
+            <label for="genero_juegos">¿Cuál es tu género de juegos favorito?</label>
+            <input type="text" id="genero_juegos" name="genero_juegos">
+        </div>
+    
+        <div class="formcot">
+            <label for="perifericos">¿Qué periféricos utilizas para jugar (ratón, teclado, mando, etc.)?</label>
+            <input type="text" id="perifericos" name="perifericos">
+        </div>
+    </div>
+    
+    <div class="formcot">
+        <label for="programas_preinstalados">¿Necesitas que se incluyan programas preinstalados en tu computadora de escritorio?</label>
+        <label class="switch">
+            <input type="checkbox" id="programas_preinstalados" name="programas_preinstalados">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    
+    <div class="formcot">
+        <label for="wifi">¿Es importante para ti tener conectividad inalámbrica (Wi-Fi) en tu computadora de escritorio?</label>
+        <label class="switch">
+            <input type="checkbox" id="wifi" name="wifi">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    
+    <div class="formcot">
+        <label for="puertos_usb">¿Cuántos puertos USB y de otros tipos necesitas en tu computadora de escritorio?</label>
+        <div class="respuesta">
+        <input type="range" id="puertos_usb" name="puertos_usb" min="4" max="10" value="4">
+        <output for="puertos_usb" id="output_puertos_usb">4 puertos USB</output>
+    </div>
+    </div>
+    <script>
+        document.getElementById('puertos_usb').addEventListener('input', function() {
+            var output = document.getElementById('output_puertos_usb');
+            output.textContent = this.value+" puertos USB";
+        });
+    </script>
+    
+    
+    <div class="formcot">
+        <label for="actualizaciones">¿Planeas hacer futuras actualizaciones o mejoras en tu computadora de escritorio?</label>
+        <label class="switch">
+            <input type="checkbox" id="actualizaciones" name="actualizaciones">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    
+    <div class="formcot">
+        <label for="multitarea">¿Qué tan importante es para ti la capacidad de multitarea de tu computadora de escritorio?</label>
+        <select id="multitarea" name="multitarea">
+            <option value="muy_importante">Muy importante</option>
+            <option value="importante">Importante</option>
+            <option value="poco_importante">Poco importante</option>
+            <option value="no_importante">No importante</option>
+        </select>
+    </div>
+    
+    
+</div>
+<center>
+    <div type="submit" class="botom" value=""><a href="armador.html">Enviar</a></div>
+</center>
+</form>
+
+
+<script>
+    function mostrarPreguntasVideojuegos() {
+        var checkbox = document.getElementById("jugar_videojuegos");
+        var preguntasVideojuegos = document.getElementById("preguntas_videojuegos");
+        if (checkbox.checked) {
+            preguntasVideojuegos.style.display = "grid";
+        } else {
+            preguntasVideojuegos.style.display = "none";
+        }
+    }
+</script>
+
+
+</form>
+<script src="scripts/cambiocolo.js"></script>
+</body>
+</html>
