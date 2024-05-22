@@ -46,9 +46,10 @@ input {
 
 
 select {
+    border-radius: 5px;
     background: var(--color-4);
     border: none;
-    color: var(--color-3);
+    color: var(--color-2);
 }
 .grid-container {
     display: grid;
@@ -119,6 +120,7 @@ select {
     opacity: 1;
 }
 .allform div {
+    margin: 5px;
     border-radius: 5px;
 }
 .allform {
@@ -236,4 +238,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   border-radius: 5px;
   cursor: pointer;
 }
-
+.botom{
+    
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
