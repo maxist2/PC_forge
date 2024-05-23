@@ -33,11 +33,11 @@ button:hover {
   border-radius: 5px;
   background-color: var(--color-1);
   width: auto;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   color: var(--color-2);
   text-decoration: none;
-  border: none;
   padding: 10px;
+  border: none;
 }
 .menu-barra button:hover {
   background-color: var(--color-3);
@@ -66,8 +66,6 @@ button:hover {
   background-color: var(--color-1);
   padding: 20px;
   width: 300px;
-  
-  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
 }
 .popup h2 {
   margin-top: 0;
@@ -153,16 +151,14 @@ button:hover {
 }
 
 
-
 .boton-perfil {
   display: inline-block;
   background-color: #4CAF50;
   color: white;
+  font-size: 16px;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  height: 36px;
-  padding: 0px !important;
 }
 
 .boton-perfil:hover {
@@ -174,37 +170,9 @@ button:hover {
   background-color: var(--color-3);
 }
 .boton-perfil img {
-  background-color: transparent;
-  position: initial;
+  top: 0px;
+  right: 5px;
   width: 30px; /* ajusta el tamaño de la imagen según sea necesario */
   height: 30px; /* ajusta el tamaño de la imagen según sea necesario */ 
   vertical-align: middle;
-  margin: 3px;
-}
-
-
-.cerrar button{
-  padding: 10px;
-  margin-bottom: 0;
-}
-.cerrar a{
-  margin: 10px;
-}
-.cerrar{
-  display: none;
-  position: absolute;
-  left: 88vw;
-  top: 35px;
-  padding: 20px;
-  z-index: 99;
-  background-color: var(--color-1);
-  border-radius: 5px;
-  
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
-}
-.boton-perfil:hover ~ .cerrar {
-  display: block;
-}
-.cerrar:hover {
-  display: block;
 }

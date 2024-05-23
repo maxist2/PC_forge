@@ -53,45 +53,26 @@
             <img src="recursos/logo_texto.png" alt="logo_texto" style="width: 200px;">
         </a>
         <div class="menu-barra">
-            <button class="index"  onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro')" ><a href="index.html"> Inicio</a></button>
-            <button class="almacen" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro')"><a href="almacen copy.html">Armeria</a></button>
-            <button class="ventanas" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro')"><a href="armador.html">Forja</a></button>
+            <button class="index"  onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro')" ><a href="index 2.html"> Inicio</a></button>
+            <button class="almacen" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro')"><a href="almacen copy. 2html">Armeria</a></button>
+            <button class="ventanas" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro')"><a href="armador 2.html">Forja</a></button>
             
-            <button class="menu-item" onClick="mostrarPopup('popup-registro'),ocultarPopup('popup-login')">Registro</button>
-            <button class="menu-item" onClick="mostrarPopup('popup-login'),ocultarPopup('popup-registro')">Iniciar Sesión</button>
+            
+       
+            <button type="button" class="boton-perfil">
+                <img id="user-img" src="recursos/userclaro.png" alt="Imagen de usuario">
+            </button>
+    
+            <div class="cerrar"> 
+                <button class="boton-perfil" onclick="location.href='almacen copy.html';"><a href="formilario.html">cerrar Sesión</a></button>
+            </div>
+
+
             <button id="change-colors"><img src="recursos/claro.png" alt="Icono de Cambiar Colores"></button>
+    
         </div>
         </nav>
     </header>
-    <div id="popup-login" class="popup">
-        <h2>Iniciar Sesión</h2>
-        <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-login')">&times;</div>
-        <form id="login-form" class="formulario-login">
-            <input type="text" name="usuario" placeholder="Usuario" required>
-            <div class="password-container">
-                <input type="password" name="contraseña" id="login-password" placeholder="Contraseña" title="La contraseña debe cumplir los siguientes requisitos: al menos una letra mayúscula (A-Z), al menos una letra minúscula (a-z), al menos un dígito (0-9), y tener una longitud mínima de 8 caracteres." pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                <button type="button" class="toggle-password" onclick="togglePassword('login-password')">Mostrar</button>
-            </div>
-            <input type="submit" value="Iniciar Sesión" onclick="window.location.href='formilario 2.html'">
-        </form>
-    </div>
-    
-    <div id="popup-registro" class="popup">
-        <h2>Registro</h2>
-        <div class="close" role="button" tabindex="0" onclick="ocultarPopup('popup-registro')">&times;</div>
-        <form id="register-form" class="formulario-registro">
-            <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="text" name="apellido" placeholder="Apellido" required>
-            <input type="email" name="correo" placeholder="Correo Electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}\.[a-z]{2,}$" title="Ingrese un correo electrónico válido" required>
-            <div class="password-container">
-                <input type="password" name="contraseña" id="register-password" placeholder="Contraseña" title="La contraseña debe cumplir los siguientes requisitos: al menos una letra mayúscula (A-Z), al menos una letra minúscula (a-z), al menos un dígito (0-9), y tener una longitud mínima de 8 caracteres." pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
-                <button type="button" class="toggle-password" onclick="togglePassword('register-password')">Mostrar</button>
-            </div>
-            <input type="submit" value="Registrarse" onclick="window.location.href='formilario 2.html'">
-        </form>
-        <script src="scripts/register-login.js"></script>    
-    </div>
-    </div>
 
     <h1>Planos</h1>
     <div id="planos-container"></div>

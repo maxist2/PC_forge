@@ -28,7 +28,7 @@ a {
   text-align: justify;
   word-wrap: break-word;
   text-align: center;
-  z-index: 500;
+  z-index: 1;
 }
 
 

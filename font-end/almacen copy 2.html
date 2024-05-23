@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pc Almacen</title>
+        <link rel="icon" href="recursos/logo_Pn.ico">
+
+
+        <link rel="stylesheet" href="CSSs/prins.css">
+        <link rel="stylesheet" href="CSSs/cavecera.css">
+        <link rel="stylesheet" href="CSSs/Almacen.css">
+        <script src="scripts/Cargarplanos.js"></script>
+        <script>
+          function setPage(pageName) {
+          localStorage.setItem('currentPage', pageName);
+      }
+      setPage('almacen')
+
+      </script>
+</head>
+<body style="overflow: hidden;">
+    <header>
+        <nav>
+          <a onclick="campag('index')">
+              <img src="recursos/logo_Pn.png" alt="logo_texto" style="width: 80px;">
+              <img src="recursos/logo_texto.png" alt="logo_texto" style="width: 200px;">
+          </a>
+          <div class="menu-barra">
+              <button class="index" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('index')"><a href="index 2.html">Inicio</a></button>
+              <button class="almacen" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('almacen')" id="pagactu"><a href="almacen copy 2.html">Armeria</a></button>
+              <button class="ventanas" onclick="ocultarPopup('popup-login'),ocultarPopup('popup-registro'),campag('ventanas')"><a href="armador 2.html">Forja</a></button>
+              
+              
+              <button type="button" class="boton-perfil">
+                  <img id="user-img" src="recursos/userclaro.png" alt="Imagen de usuario">
+              </button>
+      
+              <div class="cerrar"> 
+                  <button class="boton-perfil" onclick="location.href='almacen copy.html';"><a href="almacen copy.html">cerrar Sesión</a></button>
+              </div>
+      
+              <button id="change-colors"><img src="recursos/claro.png" alt="Icono de Cambiar Colores"></button>
+          </div>
+        </nav>
+      </header>
+      
+
+<br>
+<div class="planos-container">
+</div>
+ 
+
+<script src="scripts/CargarPlanos.js"></script>
+<script src="scripts/cambiocolo.js"></script>
+</body>
+
+</body>
+</html>

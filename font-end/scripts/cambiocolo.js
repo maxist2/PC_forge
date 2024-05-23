@@ -24,26 +24,22 @@ const newColors = {
 
 let usingOriginalColors = true;
 
-const changeColorsButton = document.getElementById('change-colors');
-const changeColorsButtonIcon = changeColorsButton.querySelector('img');
-
-function applyColorsToDocument(doc, colors) {
-    for (const [key, value] of Object.entries(colors)) {
-        doc.documentElement.style.setProperty(key, value);
-    }
-}
-
 document.getElementById('change-colors').addEventListener('click', function() {
     const colors = usingOriginalColors ? newColors : originalColors;
-    applyColorsToDocument(document, colors);
-
-    // También aplicar los colores al contenido del objeto
-    const objectContent = document.getElementById('contenido').contentDocument;
-    if (objectContent) {
-        applyColorsToDocument(objectContent, colors);
+    for (const [key, value] of Object.entries(colors)) {
+        document.documentElement.style.setProperty(key, value);
     }
-
     usingOriginalColors = !usingOriginalColors;
-    // Cambiar el icono del botón
-    changeColorsButtonIcon.src = usingOriginalColors ? 'recursos/claro.png' : 'recursos/obscuro.png';
+});
+
+document.getElementById('change-colors').addEventListener('click', function() {
+    var buttonImg = this.querySelector('img');
+    var userImg = document.getElementById('user-img');
+    if (buttonImg.src.includes('claro.png')) {
+        buttonImg.src = 'recursos/obscuro.png';
+        userImg.src = 'recursos/userobscuro.png';
+    } else {
+        buttonImg.src = 'recursos/claro.png';
+        userImg.src = 'recursos/userclaro.png';
+    }
 });
